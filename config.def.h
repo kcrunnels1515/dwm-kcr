@@ -31,14 +31,14 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-/*	"nitrogen", "--restore", NULL,
+	"nitrogen", "--restore", NULL,
 	"picom", NULL,
 	"dunst", NULL,
 	"/usr/lib/polkit-kde-authentication-agent-1", NULL,
 	"numlockx on", NULL,
 	"emacs --daemon", NULL,
 	"volumeicon", NULL,
-	"nm-applet", NULL, */
+	"nm-applet", NULL, 
 	"dwmblocks", NULL,
 	NULL /* terminate */
 };
@@ -117,18 +117,22 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	/* Start extra keybinds 
+	/* Start extra keybinds */
 	{ ControlMask|Mod1Mask,		XK_f,	   spawn,	   TERMCMD("ranger")},
 	{ ControlMask|Mod1Mask,		XK_e,	   spawn,	   SHCMD("emacsclient -c -a 'nvim'")},
 	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-system-actions.sh")},
 	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-zathura.sh")},
 	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-surfraw.sh")},
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
- End extra keybinds */
+/* End extra keybinds */
 	{ MODKEY,                       XK_comma,   viewtoleft,     {0} },
 	{ MODKEY,                       XK_period,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_comma,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_period,  tagtoright,     {0} },
+	{ MODKEY,                       XK_bracketleft,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_bracketright, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_bracketleft,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_bracketright, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
