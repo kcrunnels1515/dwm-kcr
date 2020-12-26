@@ -39,7 +39,7 @@ static const char *const autostart[] = {
 	"emacs --daemon", NULL,
 	"volumeicon", NULL,
 	"nm-applet", NULL, 
-	"xrandr --output HDMI1 --auto --right-of VGA1", NULL,
+	"xrandr", "--output", "HDMI1", "--auto", "--right-of", "VGA1", NULL,
 	"dwmblocks", NULL,
 	NULL /* terminate */
 };
