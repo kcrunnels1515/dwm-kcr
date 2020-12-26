@@ -32,7 +32,6 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"nitrogen", "--restore", NULL,
-	"xrandr --output HDMI1 --auto --right-of VGA1", NULL,
 	"picom", NULL,
 	"dunst", NULL,
 	"/usr/lib/polkit-kde-authentication-agent-1", NULL,
@@ -40,6 +39,7 @@ static const char *const autostart[] = {
 	"emacs --daemon", NULL,
 	"volumeicon", NULL,
 	"nm-applet", NULL, 
+	"xrandr --output HDMI1 --auto --right-of VGA1", NULL,
 	"dwmblocks", NULL,
 	NULL /* terminate */
 };
