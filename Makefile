@@ -27,7 +27,7 @@ dwm: ${OBJ}
 	cd dwmblocks && $(MAKE)
 
 clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
+	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz config.h
 	cd dwmblocks && $(MAKE) clean
 
 dist: clean
