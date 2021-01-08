@@ -39,7 +39,7 @@ static const char *const autostart[] = {
 	"emacs --daemon", NULL,
 	"volumeicon", NULL,
 	"nm-applet", NULL, 
-	"xrandr", "--output", "HDMI1", "--auto", "--right-of", "VGA1", NULL,
+/*	"xrandr", "--output", "HDMI1", "--auto", "--right-of", "VGA1", NULL, */
 	"dwmblocks", NULL,
 	NULL /* terminate */
 };
@@ -87,7 +87,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 #include "selfrestart.c"
 
