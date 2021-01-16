@@ -124,7 +124,7 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-zathura.sh")},
 	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-surfraw.sh")},
 	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("$HOME/.scripts/bkms")},
-	{ MODKEY|ModMask1,		XK_y,	   spawn,	   SHCMD("$HOME/.scripts/dmenuyt.sh")},
+	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("$HOME/.scripts/dmenuyt.sh")},
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
 /* End extra keybinds */
 	{ MODKEY,                       XK_comma,   viewtoleft,     {0} },
