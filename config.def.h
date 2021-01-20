@@ -123,7 +123,7 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-system-actions.sh")},
 	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-zathura.sh")},
 	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-surfraw.sh")},
-	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("$HOME/.scripts/bkms")},
+	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("$HOME/.scripts/bmks")},
 	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("$HOME/.scripts/dmenuyt.sh")},
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
 /* End extra keybinds */
