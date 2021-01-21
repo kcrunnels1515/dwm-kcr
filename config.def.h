@@ -52,9 +52,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class      instance    title       tags mask     isfloating   monitor    scratch key */
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        0  },
+	{ "firefox",  NULL,       NULL,       1 << 8,       0,           -1,        0  },
+	{ NULL,       NULL,   "scratchpad",   0,            1,           -1,       's' },
 };
 
 /* layout(s) */
@@ -89,12 +90,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+/*First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 /*	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } }, */
 	{ MODKEY|ShiftMask, 		XK_Return, spawn,          SHCMD("$HOME/.scripts/dmenu_run-better.sh")},
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
