@@ -96,7 +96,7 @@ static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 /*	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } }, */
-	{ MODKEY|ShiftMask, 		XK_Return, spawn,          SHCMD("$HOME/.scripts/dmenu_run-better.sh")},
+	{ MODKEY|ShiftMask, 		XK_Return, spawn,          SHCMD("/usr/local/share/dwm/dmenu_run-better.sh")},
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
@@ -125,11 +125,19 @@ static Key keys[] = {
 	/* Start extra keybinds */
 	{ ControlMask|Mod1Mask,		XK_f,	   spawn,	   TERMCMD("ranger")},
 	{ ControlMask|Mod1Mask,		XK_e,	   spawn,	   SHCMD("emacsclient -c -a 'nvim'")},
-	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-system-actions.sh")},
-	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-zathura.sh")},
-	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("$HOME/.dmenu/dmenu-surfraw.sh")},
-	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("$HOME/.scripts/bmks")},
-	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("$HOME/.scripts/dmenuyt.sh")},
+<<<<<<< HEAD
+	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-system-actions.sh")},
+	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-zathura.sh")},
+	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-surfraw.sh")},
+	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bmks")},
+	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
+=======
+	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-system-actions.sh")},
+	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-zathura.sh")},
+	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-surfraw.sh")},
+	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bkms")},
+	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
+>>>>>>> dev
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
 /* End extra keybinds */
 	{ MODKEY,                       XK_comma,   viewtoleft,     {0} },
