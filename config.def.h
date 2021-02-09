@@ -2,7 +2,10 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const Gap default_gap	    = {.isgap = 1, .realgap = 10, .gappx =10};
+static const unsigned int igappx    = 5;        /* size of inner gaps */
+static const unsigned int ogappx    = 5;        /* size of outer gaps */
+static const int gapsforone	    = 0;	/* 1 enable gaps when only one window is open */
+/* static const Gap default_gap	    = {.isgap = 1, .realgap = 10, .gappx =10}; */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -60,7 +63,8 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const int dirs[3]      = { DirHor, DirVer, DirVer }; /* tiling dirs */
+static const float facts[3]   = { 1.1,    1.1,    1.1 };    /* tiling facts */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int attachdirection = 3;    /* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
@@ -81,6 +85,11 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+
+#define TILEKEYS(MOD,G,M,S) \
+	{ MOD, XK_r, setdirs,  {.v = (int[])  { INC(G * +1),   INC(M * +1),   INC(S * +1) } } }, \
+	{ MOD, XK_h, setfacts, {.v = (float[]){ INC(G * -0.1), INC(M * -0.1), INC(S * -0.1) } } }, \
+	{ MOD, XK_l, setfacts, {.v = (float[]){ INC(G * +0.1), INC(M * +0.1), INC(S * +0.1) } } },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -109,11 +118,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,	                XK_q,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_i,      setigaps,       {.i = +2 } },
+	{ MODKEY|ControlMask,           XK_i,      setigaps,       {.i = -2 } },
+	{ MODKEY|ShiftMask|ControlMask, XK_i,      setigaps,       {.i = 0  } },
+	{ MODKEY|ShiftMask,             XK_o,      setogaps,       {.i = +2 } },
+	{ MODKEY|ControlMask,           XK_o,      setogaps,       {.i = -2 } },
+	{ MODKEY|ShiftMask|ControlMask, XK_o,      setogaps,       {.i = 0  } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -142,11 +155,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_bracketright, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_bracketleft,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_bracketright, tagmon,         {.i = +1 } },
+	TILEKEYS(MODKEY,                                           1, 0, 0)
+	TILEKEYS(MODKEY|ShiftMask,                                 0, 1, 0)
+	TILEKEYS(MODKEY|ControlMask,                               0, 0, 1)
+	TILEKEYS(MODKEY|ShiftMask|ControlMask,                     1, 1, 1)
+	{ MODKEY|ShiftMask,             XK_t,      setdirs,        {.v = (int[]){ DirHor, DirVer, DirVer } } },
+	{ MODKEY|ControlMask,           XK_t,      setdirs,        {.v = (int[]){ DirVer, DirHor, DirHor } } },
+	/*
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY,	                XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
-	
+	*/
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -226,7 +246,7 @@ tagall(const Arg *arg)
 static Signal signals[] = {
 	/* signum           function */
 	{ "focusstack",     focusstack },
-	{ "setmfact",       setmfact },
+	{ "setfacts",       setfacts },
 	{ "togglebar",      togglebar },
 	{ "incnmaster",     incnmaster },
 	{ "togglefloating", togglefloating },
