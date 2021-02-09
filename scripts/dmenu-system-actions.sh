@@ -16,7 +16,7 @@ restart
 screenlock
 quit")
 
-choice=$(echo -e "${options[@]}" | dmenu -l 7 -i -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | dmenu -l 7 -i -p 'Execute action> ')
 
 case "$choice" in
 	quit)
