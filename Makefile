@@ -39,12 +39,12 @@ dist: clean
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
 
-bins:
+misc:
 	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
-	cp -f scripts/* ${DESTDIR}${PREFIX}/share/dwm
+	cp -f misc/* ${DESTDIR}${PREFIX}/share/dwm
 	chmod 755 ${DESTDIR}${PREFIX}/share/dwm/*
 
-install: all bins
+install: all misc
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	cp -f dwm.desktop ${DESTDIR}/usr/share/xsessions
