@@ -39,12 +39,7 @@ dist: clean
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
 
-misc:
-	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
-	cp -f misc/* ${DESTDIR}${PREFIX}/share/dwm
-	chmod 755 ${DESTDIR}${PREFIX}/share/dwm/*
-
-install: all misc
+install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	cp -f dwm.desktop ${DESTDIR}/usr/share/xsessions
@@ -54,6 +49,9 @@ install: all misc
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	cd dwmblocks && $(MAKE) install
+	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
+	cp -f misc/* ${DESTDIR}${PREFIX}/share/dwm
+	chmod 755 ${DESTDIR}${PREFIX}/share/dwm/*
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
