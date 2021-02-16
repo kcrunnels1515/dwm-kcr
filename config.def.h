@@ -20,7 +20,7 @@ enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always
 static const int showtab			= showtab_auto;        /* Default tab bar show mode */
 static const int toptab				= True;               /* False means bottom tab bar */
 
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "Hack-Regular:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -61,7 +61,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor    scratch key */
 	{ "Gimp",     NULL,       NULL,       0,            0,           -1,        0  },
-	{ "mpv",     NULL,       NULL,       0,            1,           -1,        0  },
+	{ "mpv",      NULL,       NULL,       0,            1,           -1,        0  },
 	{ "firefox",  NULL,       NULL,       1 << 8,       0,           -1,        0  },
 	{ NULL,       NULL,   "scratchpad",   0,            1,           -1,       's' },
 };
@@ -159,6 +159,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_bracketright, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_bracketleft,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_bracketright, tagmon,         {.i = +1 } },
+	{ MODKEY, 			XK_KP_End,    movetoedge,       {.v = "-1 1" } },
+	{ MODKEY, 			XK_KP_Down,   movetoedge,       {.v = "0 1" } },
+	{ MODKEY, 			XK_KP_Next,   movetoedge,       {.v = "1 1" } },
+	{ MODKEY, 			XK_KP_Left,   movetoedge,       {.v = "-1 0" } },
+	{ MODKEY, 			XK_KP_Begin,  movetoedge,       {.v = "0 0" } },
+	{ MODKEY, 			XK_KP_Right,  movetoedge,       {.v = "1 0" } },
+	{ MODKEY, 			XK_KP_Home,   movetoedge,       {.v = "-1 -1" } },
+	{ MODKEY, 			XK_KP_Up,     movetoedge,       {.v = "0 -1" } },
+	{ MODKEY, 			XK_KP_Prior,  movetoedge,       {.v = "1 -1" } },
 	TILEKEYS(MODKEY,                                           1, 0, 0)
 	TILEKEYS(MODKEY|ShiftMask,                                 0, 1, 0)
 	TILEKEYS(MODKEY|ControlMask,                               0, 0, 1)

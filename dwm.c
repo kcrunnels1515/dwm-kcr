@@ -264,6 +264,7 @@ static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
 static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
+static void movetoedge(const Arg *arg);
 static Client *nexttagged(Client *c);
 static Client *nexttiled(Client *c);
 static void pop(Client *);
@@ -1754,6 +1755,43 @@ movemouse(const Arg *arg)
 		selmon = m;
 		focus(NULL);
 	}
+}
+
+void
+movetoedge(const Arg *arg) {
+	/* only floating windows can be moved */
+	Client *c;
+	c = selmon->sel;
+	int x, y, nx, ny;
+
+	if (!c || !arg)
+		return;
+	if (selmon->lt[selmon->sellt]->arrange && !c->isfloating)
+		return;
+	if (sscanf((char *)arg->v, "%d %d", &x, &y) != 2)
+		return;
+
+	if(x == 0)
+		nx = (selmon->mw - c->w)/2;
+	else if(x == -1)
+		nx = borderpx;
+	else if(x == 1)
+		nx = selmon->mw - (c->w + 2 * borderpx);
+	else
+		nx = c->x;
+
+	if(y == 0)
+		ny = (selmon->mh - (c->h + bh))/2;
+	else if(y == -1)
+		ny = bh + borderpx;
+	else if(y == 1)
+		ny = selmon->mh - (c->h + 2 * borderpx);
+	else 
+		ny = c->y;
+
+
+	XRaiseWindow(dpy, c->win);
+	resize(c, nx, ny, c->w, c->h, True);
 }
 
 Client *
