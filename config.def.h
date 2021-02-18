@@ -149,6 +149,8 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-surfraw.sh")},
 	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bkms")},
 	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
+	{ MODKEY|Mod1Mask,		XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/mapper.sh")},
+	{ MODKEY,			XK_F1,  spawn,	   SHCMD("man -Tpdf dwm | zathura -")},
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
 /* End extra keybinds */
 	{ MODKEY,                       XK_comma,   viewtoleft,     {0} },

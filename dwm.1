@@ -25,17 +25,15 @@ Each screen contains two small status bars.
 One bar displays all available tags, the layout, the title of the focused
 window, and the text read from the root window name property, if the screen is
 focused. A floating window is indicated with an empty square and a maximised
-floating window is indicated with a filled square before the windows title.  The
-selected tags are indicated with a different color. The tags of the focused
-window are indicated with a filled square in the top left corner.  The tags
-which are applied to one or more windows are indicated with an empty square in
-the top left corner.
+floating window is indicated with a filled square before the windows title.
+The tags of the focused window are indicated with a filled square in the top
+left corner.
 .P
 Another bar contains a tab for each window of the current view and allows
 navigation between windows, especially in the monocle mode. The different
 display modes of this bar are described under the Mod1\-w Keybord command
-section.  When a single tag is selected, this tag is indicated in the left corner
-of the tab bar.
+section.  When a single tag is selected, this tag is indicated in the left
+corner of the tab bar.
 .P
 dwm draws a small border around windows to indicate the focus state.
 .SH OPTIONS
@@ -45,15 +43,9 @@ prints version information to stderr, then exits.
 .SH USAGE
 .SS Status bar
 .TP
-.B X root window name
-is read and displayed in the status text area. It can be set with the
-.BR xsetroot (1)
-command.
-.TP
 .B Button1
 click on a tag label to display all windows with that tag, click on the layout
-label toggles between tiled and floating layout, click on a window name in the
-tab bar brings focus to that window.
+label toggles between tiled and floating layout.
 .TP
 .B Button3
 click on a tag label adds/removes all windows with that tag to/from the view.
@@ -63,106 +55,283 @@ click on a tag label applies that tag to the focused window.
 .TP
 .B Super\-Button3
 click on a tag label adds/removes that tag to/from the focused window.
+
 .SS Keyboard commands
+
 .TP
-.B Super\-Return
-Start
-.BR alacritty(1).
+.B
+Super\-Shift\-Return
+Spawn dmenu run prompt.
 .TP
-.B Super\-Shift\-d
-Spawn
-.B rofi(1)
+.B
+Super\-Return
+Spawn my st build.
 .TP
-.B Super\-p
-Spawn
-.BR dmenu(1)
-for launching other programs.
+.B
+Super\-Shift\-d
+Spawn rofi application launcher.
 .TP
-.B Super\-b
-Toggles bar on and off.
+.B
+Super\-grave
+Toggle scratchpad terminal.
 .TP
-.B Super\-t
-Sets tiled layout.
+.B
+Super\-b
+Toggle bar.
 .TP
-.B Super\-s
-Sets floating layout.
+.B
+Super\-Shift\-k
+Rotate window up through stack.
 .TP
-.B Super\-m
-Sets monocle layout.
+.B
+Super\-Shift\-j
+Rotate window down through stack.
 .TP
-.B Super\-g
-Sets grid layout.
+.B
+Super\-k
+Shift focus up through stack.
 .TP
-.B Super\-space
-Toggles between current and previous layout.
+.B
+Super\-j
+Shift focus down through stack.
 .TP
-.B Super\-j
-Focus next window.
+.B
+Super\-i
+Increase the number of windows in master area.
 .TP
-.B Super\-k
-Focus previous window.
+.B
+Super\-d
+Decrease the number of windows in master area.
 .TP
-.B Super\-i
-Increase number of windows in master area.
+.B
+Super\-z
+Zoom focused window to master, or swap master with first in stack.
 .TP
-.B Super\-d
-Decrease number of windows in master area.
+.B
+Super\-Tab
+Switch to last occupied tag.
 .TP
-.B Super\-l
-Increase master area size.
+.B
+Super\-q
+Kill focused window.
 .TP
-.B Super\-h
-Decrease master area size.
+.B
+Super\-Shift\-i
+Increase gaps between windows.
 .TP
-.B Super\-z
-Zooms/cycles focused window to/from master area (tiled layouts only).
+.B
+Super\-Control\-i
+Decrease gaps between windows.
 .TP
-.B Super\-q
-Close focused window.
+.B
+Super\-Shift\-Control\-i
+Reset gaps between windows.
 .TP
-.B Super\-Shift\-space
-Toggle focused window between tiled and floating state.
+.B
+Super\-Shift\-o
+Increase gaps around screen edge.
 .TP
-.B Super\-Tab
-Toggles to the previously selected tags.
+.B
+Super\-Control\-o
+Decrease gaps around screen edge.
 .TP
-.B Super\-Shift\-[1..n]
-Apply nth tag to focused window.
-.B Super\-Right
-Focus tag on the right, if any.
+.B
+Super\-Shift\-Control\-o
+Reset gaps around screen edge.
 .TP
-.B Super\-Comma
-Focus tag on the left, if any.
+.B
+Super\-t
+Set tiling layout.
 .TP
-.B Super\-Shift\-Period
-Send focused window to tag on the right, if any.
+.B
+Super\-s
+Set floating layout.
 .TP
-.B Super\-Shift\-Comma
-Send focused window to tag on the left, if any.
+.B
+Super\-m
+Set monocle layout.
 .TP
-.B Super\-Shift\-Period
-Send focused window to tag on the left, if any.
+.B
+Super\-g
+Set grid layout.
 .TP
-.B Super\-Shift\-0
-Apply all tags to focused window.
+.B
+Super\-f
+Set fullscreen layout and swaps windows in fullscreen layout.
 .TP
-.B Super\-Control\-Shift\-[1..n]
-Add/remove nth tag to/from focused window.
+.B
+Super\-space
+Toggle last used layout.
 .TP
-.B Super\-[1..n]
-View all windows with nth tag.
+.B
+Super\-Delete
+Toggle floating layout for window.
 .TP
-.B Super\-0
-View all windows with any tag.
+.B
+Super\-Shift\-f
+Toggle fullscreen layout for window.
 .TP
-.B Super\-Control\-[1..n]
-Add/remove all windows with nth tag to/from the view.
+.B
+Super\-0
+Show contents of all tags.
 .TP
-.B Super\-Shift\-x
-Quit dwm.
+.B
+Super\-Shift\-0
+Apply window to all tags.
 .TP
-.B Super\-Shift\-r
+.B
+Control\-Alt\-f
+Spawn ranger
+.TP
+.B
+Control\-Alt\-e
+Spawn Emacs client frame.
+.TP
+.B
+Control\-Alt\-t
+Spawn system actions menu.
+.TP
+.B
+Control\-Alt\-d
+P.O.S. Doesn't work.
+.TP
+.B
+Control\-Alt\-s
+Spawn search menu.
+.TP
+.B
+Super\-Alt\-b
+Open bookmarks menu.
+.TP
+.B
+Super\-Alt\-y
+Open YouTube search menu.
+.TP
+.B
+Super\-Alt\-m
+Hide/show window.
+.TP
+.B
+Super\-Alt\-c
+Spawn calculator.
+.TP
+.B
+Super\-slash
+Open dwm man page as PDF.
+.TP
+.B
+Super\-comma
+View tag to left.
+.TP
+.B
+Super\-period
+View tag to right.
+.TP
+.B
+Super\-Shift\-comma
+Move focused window to leftwards tag.
+.TP
+.B
+Super\-Shift\-period
+Move focused window to leftwards tag.
+.TP
+.B
+Super\-bracketleft
+Focus monitor to left.
+.TP
+.B
+Super\-bracketright
+Focus monitor to right.
+.TP
+.B
+Super\-Shift\-bracketleft
+Shift window to leftward monitor.
+.TP
+.B
+Super\-Shift\-bracketright
+Shift window to rightward monitor.
+.TP
+.B
+Super\-Keypad End
+Move floating window to left bottom.
+.TP
+.B
+Super\-Keypad Down
+Move floating window to center bottom.
+.TP
+.B
+Super\-Keypad Next
+Move floating window to right bottom.
+.TP
+.B
+Super\-Keypad Left
+Move floating window to left center.
+.TP
+.B
+Super\-Keypad Begin
+Move floating window to center.
+.TP
+.B
+Super\-Keypad Right
+Move floating window to right center.
+.TP
+.B
+Super\-Keypad Home
+Move floating window to left top.
+.TP
+.B
+Super\-Keypad Up
+Move floating window to center top.
+.TP
+.B
+Super\-Keypad Prior
+Move floating window to right top.
+.TP
+.B
+Super\-\{h,l\}
+Decrease/increase master area size.
+.TP
+.B
+Super\-Control\-\{h,l\}
+Decrease/increase stack area size.
+.TP
+.B
+Super\-Shift\-Control\-\{h,l\}
+Decrease/increase master and stack area sizes.
+.TP
+.B
+Super\-Shift\-t
+Move stack to right of master.
+.TP
+.B
+Super\-Control\-t
+Move stack to beneath master.
+.TP
+.B
+Super\-\{1,2...,n\}
+View n-th tag.
+.TP
+.B
+Super\-Shift\-\{1,2...,n\}
+Move focused window to n-th tag.
+.TP
+.B
+Super\-Control\-\{1,2...,n\}
+View n-th tag in addition current tag.
+.TP
+.B
+Super\-Shift\-Control\-\{1,2...,n\}
+Apply current window to n-th tag in addition current tag.
+.TP
+.B
+Super\-Shift\-r
 Restart dwm.
+.TP
+.B
+Super\-Shift\-x
+Quit dwm.
+
+
 .SS Mouse commands
 .TP
 .B Super\-Button1
