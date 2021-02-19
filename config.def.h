@@ -147,7 +147,7 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-system-actions.sh")},
 	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-zathura.sh")},
 	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-surfraw.sh")},
-	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bkms")},
+	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bmks")},
 	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
 	{ MODKEY|Mod1Mask,		XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/mapper.sh")},
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
