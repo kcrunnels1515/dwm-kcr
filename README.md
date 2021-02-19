@@ -8,25 +8,25 @@ Requirements
 In order to build dwm you need the Xlib header files.
 
 
-| Program               | Function                                                                     |
-________________________________________________________________________________________________________
-| nitrogen              | Sets wallpaper.                                                              |
-| picom-jonaburg        | X compositor that draws blurring and rounded corners.                        |
-| dunst                 | Notification daemon.                                                         |
-| KDE polkit            | Policy kit that I use because I install KDE by default                       |
-| emacs                 | Optional. My editor of choice, which I run as a daemon for faster launching. |
-| volumeicon            | Systray volume control.                                                      |
-| networkmanager applet | Systray network management.                                                  |
-| zathura               | Fave PDF viewer.                                                             |
-| surfraw               | Provides websearch with dmenu                                                |
-| xdotool               | Window hide script.                                                          |
-| dmenu                 | Awesome dynamic menu program.                                                |
-| rofi                  | Application launcher.                                                        |
-| xclip                 | Dep for plumbing script.                                                     |
-| ranger                | Awesome terminal file manager                                                |
-| st                    | My terminal, preferably.                                                     |
-| ueberzug              | Image previews in ranger.                                                    |
-| R                     | I use Rscript as a calculator.                                               |
+Program               | Function                                                                     
+----------------------|------------------------------------------------------------------------------
+nitrogen              | Sets wallpaper.                                                              
+picom-jonaburg        | X compositor that draws blurring and rounded corners.                        
+dunst                 | Notification daemon.                                                         
+KDE polkit            | Policy kit that I use because I install KDE by default                       
+emacs                 | Optional. My editor of choice, which I run as a daemon for faster launching. 
+volumeicon            | Systray volume control.                                                      
+networkmanager applet | Systray network management.                                                  
+zathura               | Fave PDF viewer.                                                             
+surfraw               | Provides websearch with dmenu                                                
+xdotool               | Window hide script.                                                          
+dmenu                 | Awesome dynamic menu program.                                                
+rofi                  | Application launcher.                                                        
+xclip                 | Dep for plumbing script.                                                     
+ranger                | Awesome terminal file manager                                                
+st                    | My terminal, preferably.                                                     
+ueberzug              | Image previews in ranger.                                                    
+R                     | I use Rscript as a calculator.                                               
 
 
 
