@@ -8,7 +8,8 @@ Hard Requirements
 In order to build dwm you need the Xlib header files.
 
 
-####Quality of life dependencies
+Quality of life dependencies
+------
 
 Program               | Function                                                                     
 ----------------------|------------------------------------------------------------------------------
