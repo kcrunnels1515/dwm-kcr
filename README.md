@@ -18,6 +18,7 @@ emacs                 | Optional. My editor of choice, which I run as a daemon f
 volumeicon            | Systray volume control.                                                      
 networkmanager applet | Systray network management.                                                  
 zathura               | Fave PDF viewer.                                                             
+sxiv		      | Preferred image viewer.
 surfraw               | Provides websearch with dmenu                                                
 xdotool               | Window hide script.                                                          
 dmenu                 | Awesome dynamic menu program.                                                
