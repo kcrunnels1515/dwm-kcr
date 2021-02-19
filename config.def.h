@@ -63,7 +63,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            0,           -1,        0  },
 	{ "mpv",      NULL,       NULL,       0,            1,           -1,        0  },
 	{ "firefox",  NULL,       NULL,       1 << 8,       0,           -1,        0  },
-	{ NULL,       NULL,   "scratchpad",   0,            1,           -1,       's' },
+	{ NULL,       NULL,   	"scratchpad",   0,            1,         -1,       's' },
+	{ NULL,	      NULL,	"fmscratchpad",	0,		0,	 -1,	   'f' },
 };
 
 /* layout(s) */
@@ -107,6 +108,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
+static const char *rangercmd[] = {"f", "st", "-t", "fmscratchpad", "-e", "ranger", NULL}; 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -115,6 +117,7 @@ static Key keys[] = {
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_grave,  togglescratch,  {.v = rangercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
