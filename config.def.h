@@ -159,6 +159,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,		XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
 	{ MODKEY,			XK_c,	   spawn,	   SHCMD("/usr/local/share/dwm/plumb")},
 	{ MODKEY|Mod1Mask,		XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/mapper.sh")},
+	{ MODKEY,			XK_slash,  spawn,	   SHCMD("groff -mandoc -Tpdf /usr/local/man/man1/dwm.1 | zathura -")},
 	{ MODKEY|Mod1Mask,		XK_c,	   spawn,	   TERMCMD("R")},
 /* End extra keybinds */
 	{ MODKEY,                       XK_comma,   viewtoleft,     {0} },
