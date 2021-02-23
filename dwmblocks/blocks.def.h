@@ -3,6 +3,8 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	5,		0},
 	{ "  ", "iw wlp3s0 info | grep ssid | sed 's/	ssid//'", 60, 0},
+	{ "Down: ", "/usr/local/share/dwm/netspeed_down.sh", 1, 0 },
+	{ "Up: ", "/usr/local/share/dwm/netspeed_up.sh", 1, 0 },
 /*	{ "Bat: ",	"acpi | awk '{print $4}' | sed 's/,/	/'",	15,	0}, */
 	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 };
