@@ -8,9 +8,7 @@ cd "$(readlink /proc/"$PID"/cwd)"
 [ -f "$prim" ] && rifle "$prim" && exit
 [ -d "$prim" ] && "$TERMINAL" "$prim" && exit
 
-websearch() { "$BROWSER" "https://duckduckgo.com/?q=$@" ;}
-wikipedia() { "$BROWSER" "https://en.wikipedia.org/wiki/$@" ;}
-wiktionary() { "$BROWSER" "https://en.wiktionary.org/wiki/$@" ;} 
+websearch() { "/usr/local/share/dwm/dmenu-surfraw.sh" "$@" ;}
 maps() { "$BROWSER" "https://openstreetmap.org/search?query=$@" ;}
 ebay() { "$BROWSER" "https://www.ebay.com/sch/$@" ;}
 
