@@ -77,6 +77,7 @@ static const int attachdirection = 3;    /* 0 default, 1 above, 2 aside, 3 below
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "[M]",      monocle },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
