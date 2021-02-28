@@ -45,6 +45,8 @@ install: all
 	cp -f dwm.desktop ${DESTDIR}/usr/share/xsessions
 	chmod 644 ${DESTDIR}/usr/share/xsessions/dwm.desktop
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
+	cp -f dwmswallow ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmswallow
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
@@ -55,6 +57,7 @@ install: all
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
+		${DESTDIR}${MANPREFIX}/bin/dwmswallow\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 .PHONY: all options clean dist install uninstall
