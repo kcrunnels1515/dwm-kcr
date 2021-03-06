@@ -153,6 +153,7 @@ static Key keys[] = {
 	{ ControlMask|Mod1Mask,		XK_f,	   spawn,	   TERMCMD("ranger")},
 	{ ControlMask|Mod1Mask,		XK_e,	   spawn,	   SHCMD("emacsclient -c -a 'nvim'")},
 	{ ControlMask|Mod1Mask,		XK_t,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-system-actions.sh")},
+	{ MODKEY,			XK_Escape, spawn,	   SHCMD("xkill")},
 	{ ControlMask|Mod1Mask,		XK_d,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-zathura.sh")},
 	{ ControlMask|Mod1Mask,		XK_s,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-surfraw.sh")},
 	{ MODKEY|Mod1Mask,		XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bmks")},
