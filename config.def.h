@@ -60,11 +60,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor    scratch key */
-	{ "Gimp",     NULL,       NULL,       0,            0,           -1,        0  },
-	{ "mpv",      NULL,       NULL,       0,            1,           -1,        0  },
-	{ NULL,       NULL,   	"scratchpad",   0,            1,         -1,       's' },
-	{ NULL,	      NULL,	"fmscratchpad",	0,		0,	 -1,	   'f' },
-	{ NULL,	      NULL,	"calcscratchpad",	0,		0,	 -1,	   'c' },
+	{ "Gimp",     NULL,       NULL,     	  0,            0,           -1,        0  },
+	{ "mpv",      NULL,       NULL,     	  0,            1,           -1,        0  },
+	{ NULL,       NULL,    "scratchpad",	  0,            1,           -1,       's' },
+	{ NULL,	      NULL,    "fmscratchpad",	  0,		0,	     -1,       'f' },
+	{ NULL,	      NULL,    "calcscratchpad",  0,		1,	     -1,       'c' },
 };
 
 /* layout(s) */
@@ -114,7 +114,7 @@ static const char *termcmd[]  = { "st", NULL };
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
 static const char *rangercmd[] = {"f", "st", "-t", "fmscratchpad", "-e", "ranger", NULL}; 
-static const char *calccmd[] = {"f", "st", "-t", "calcscratchpad", "-e", "R", NULL}; 
+static const char *calccmd[] = {"c", "st", "-t", "calcscratchpad", "-e", "R", NULL}; 
 
 static Key keys[] = {
 	/* modifier                     chain key   key        function        argument */
