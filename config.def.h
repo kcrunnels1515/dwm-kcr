@@ -156,7 +156,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_v,	XK_t,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-system-actions.sh")},
 	{ MODKEY,			-1,	XK_Escape, spawn,	   SHCMD("xkill")},
 	{ MODKEY,			XK_v,	XK_s,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-surfraw.sh")},
-	{ MODKEY,			-1,	XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bmks")},
+	{ MODKEY|Mod1Mask,		-1,	XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bmks")},
 	{ MODKEY,			XK_v,	XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
 	{ MODKEY,			-1,	XK_c,	   spawn,	   SHCMD("/usr/local/share/dwm/plumb")},
 	{ MODKEY,			-1,	XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/mapper.sh")},
