@@ -159,7 +159,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,		-1,	XK_b,	   spawn,	   SHCMD("/usr/local/share/dwm/bmks")},
 	{ MODKEY,			XK_v,	XK_y,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuyt.sh")},
 	{ MODKEY,			-1,	XK_c,	   spawn,	   SHCMD("/usr/local/share/dwm/plumb")},
-	{ MODKEY,			-1,	XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/mapper.sh")},
+	{ MODKEY|Mod1Mask,		-1,	XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/mapper.sh")},
 	{ MODKEY,			XK_v,	XK_w,	   spawn,	   SHCMD("brave")},
 	{ MODKEY,			XK_v,	XK_m,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenumount.sh")},
 	{ MODKEY,			XK_v,	XK_u,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenuumount.sh")},
