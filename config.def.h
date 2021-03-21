@@ -38,6 +38,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	/*
 	"nitrogen", "--restore", NULL,
 	"picom", "--config", "/usr/local/share/dwm/picom.conf", NULL,
 	"dunst", NULL,
@@ -46,8 +47,8 @@ static const char *const autostart[] = {
 	"emacs", "--daemon", NULL,
 	"volumeicon", NULL,
 	"nm-applet", NULL, 
-/*	"xrandr", "--output", "HDMI1", "--auto", "--right-of", "VGA1", NULL, */
 	"dwmblocks", NULL,
+	*/
 	NULL /* terminate */
 };
 
@@ -129,6 +130,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             -1,	XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       -1,	XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       -1,	XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY|ControlMask,             -1,	XK_j,      pushdown,       {.i = +1 } },
+	{ MODKEY|ControlMask,             -1,	XK_k,      pushup,         {.i = -1 } },
 	{ MODKEY,                       -1,	XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       -1,	XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       -1,	XK_z,      zoom,           {0} },
