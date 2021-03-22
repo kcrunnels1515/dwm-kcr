@@ -38,7 +38,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	/*
+//SED1
 	"nitrogen", "--restore", NULL,
 	"picom", "--config", "/usr/local/share/dwm/picom.conf", NULL,
 	"dunst", NULL,
@@ -48,7 +48,7 @@ static const char *const autostart[] = {
 	"volumeicon", NULL,
 	"nm-applet", NULL, 
 	"dwmblocks", NULL,
-	*/
+//SED2
 	NULL /* terminate */
 };
 

@@ -2036,26 +2036,14 @@ static Client *prevtiled(Client *c) {
 
 static void
 pushup(const Arg *arg) {
-	Client *sel = selmon->sel;
-	Client *c;
+	Client *sel = selmon->sel, *c;
 
 	if(!sel || sel->isfloating)
 		return;
-	if((c = prevtiled(sel))) {
-		/* attach before c */
+	if((c = prevtiled(sel)) && c != nexttiled(selmon->clients)) {
 		detach(sel);
 		sel->next = c;
-		if(selmon->clients == c)
-			selmon->clients = sel;
-		else {
-			for(c = selmon->clients; c->next != sel->next; c = c->next);
-			c->next = sel;
-		}
-	} else {
-		/* move to the end */
-		for(c = sel; c->next; c = c->next);
-		detach(sel);
-		sel->next = NULL;
+		for(c = selmon->clients; c->next != sel->next; c = c->next);
 		c->next = sel;
 	}
 	focus(sel);
@@ -2064,20 +2052,14 @@ pushup(const Arg *arg) {
 
 static void
 pushdown(const Arg *arg) {
-	Client *sel = selmon->sel;
-	Client *c;
+	Client *sel = selmon->sel, *c;
 
-	if(!sel || sel->isfloating)
+	if(!sel || sel->isfloating || sel == nexttiled(selmon->clients))
 		return;
 	if((c = nexttiled(sel->next))) {
-		/* attach after c */
 		detach(sel);
 		sel->next = c->next;
 		c->next = sel;
-	} else {
-		/* move to the front */
-		detach(sel);
-		attach(sel);
 	}
 	focus(sel);
 	arrange(selmon);
