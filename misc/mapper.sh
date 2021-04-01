@@ -9,6 +9,8 @@ if [ -s $wincache ]; then
 	rm -f $wincache
 	touch $wincache
 else
+	rm -f $wincache
+	touch $wincache
 	echo "$activewin" > $wincache
 	xdotool windowunmap $activewin
 fi
