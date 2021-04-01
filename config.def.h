@@ -39,6 +39,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 //SED1
+	/*
 	"nitrogen", "--restore", NULL,
 	"picom", "--config", "/usr/local/share/dwm/picom.conf", NULL,
 	"dunst", NULL,
@@ -46,9 +47,12 @@ static const char *const autostart[] = {
 	"numlockx", "on", NULL,
 	"emacs", "--daemon", NULL,
 	"volumeicon", NULL,
-	"nm-applet", NULL, 
+	"nm-applet", NULL,
 	"dwmblocks", NULL,
 //SED2
+	"nm-applet", NULL,
+	"dwmblocks", NULL,
+	*/
 	NULL /* terminate */
 };
 
@@ -108,14 +112,14 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; 
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
-static const char *rangercmd[] = {"f", "st", "-t", "fmscratchpad", "-e", "ranger", NULL}; 
-static const char *calccmd[] = {"c", "st", "-t", "calcscratchpad", "-e", "R", NULL}; 
+static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL};
+static const char *rangercmd[] = {"f", "st", "-t", "fmscratchpad", "-e", "ranger", NULL};
+static const char *calccmd[] = {"c", "st", "-t", "calcscratchpad", "-e", "R", NULL};
 
 static Key keys[] = {
 	/* modifier                     chain key   key        function        argument */
@@ -223,8 +227,10 @@ static Button buttons[] = {
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+	{ ClkClientWin,         MODKEY|Mod1Mask, Button1,      movemouse,      {.i = 1} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY|Mod1Mask, Button3,      resizemouse,    {.i = 1} },
 	{ ClkClientWin,         MODKEY|ShiftMask, Button1,      swalmouse,      {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
