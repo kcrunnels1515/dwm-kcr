@@ -40,7 +40,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"nitrogen", "--restore", NULL,
-	"picom", "--config", "/usr/local/share/dwm/picom.conf", NULL,
+	"picom", NULL,
 	"dunst", NULL,
 	"/usr/lib/polkit-kde-authentication-agent-1", NULL,
 	"numlockx", "on", NULL,
