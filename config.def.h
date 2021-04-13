@@ -34,6 +34,7 @@ static const char col_ */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeInv] = { col_gray1, col_gray3, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_green,  col_green  },
 };
 
@@ -47,6 +48,8 @@ static const char *const autostart[] = {
 	"volumeicon", NULL,
 	"nm-applet", NULL,
 	"dwmblocks", NULL,
+	"xset", "r", "rate", "300", "50", NULL,
+	"setxkbmap", "-option", "caps:swapescape", NULL,
 	NULL /* terminate */
 };
 
