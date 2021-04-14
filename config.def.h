@@ -155,6 +155,12 @@ static Key keys[] = {
 	{ MODKEY,                       -1,	XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             -1,	XK_0,      tag,            {.ui = ~0 } },
 	/* Start extra keybinds */
+	{ MODKEY|Mod1Mask,		-1,	XK_w,	   spawn,	   SHCMD("xdotool mousemove_relative -- 0 -10")},
+	{ MODKEY|Mod1Mask,		-1,	XK_s,	   spawn,	   SHCMD("xdotool mousemove_relative -- 0 10")},
+	{ MODKEY|Mod1Mask,		-1,	XK_a,	   spawn,	   SHCMD("xdotool mousemove_relative -- -10 0")},
+	{ MODKEY|Mod1Mask,		-1,	XK_d,	   spawn,	   SHCMD("xdotool mousemove_relative -- 10 0")},
+	{ MODKEY,			XK_c,	XK_j,	   spawn,	   SHCMD("xdotool click --clearmodifiers 1")},
+	{ MODKEY,			XK_c,	XK_k,	   spawn,	   SHCMD("xdotool click --clearmodifiers 3")},
 	{ MODKEY,			XK_v,	XK_f,	   spawn,	   TERMCMD("ranger")},
 	{ MODKEY,			XK_v,	XK_e,	   spawn,	   SHCMD("emacsclient -c -a 'nvim'")},
 	{ MODKEY,			XK_v,	XK_t,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenu-system-actions.sh")},
