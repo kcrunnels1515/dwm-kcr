@@ -65,6 +65,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    scratch key */
 	{ "Gimp",     NULL,       NULL,     	  0,            0,           -1,        0  },
 	{ "mpv",      NULL,       NULL,     	  0,            1,           -1,        0  },
+	{ "zoom",      NULL,       NULL,     	  0,            0,            1,        0  },
+	{ "Zoom Meeting",      NULL,       NULL,     	  0,            0,            1,        0  },
 	{ NULL,       NULL,    "scratchpad",	  0,            1,           -1,       's' },
 	{ NULL,	      NULL,    "fmscratchpad",	  0,		0,	     -1,       'f' },
 	{ NULL,	      NULL,    "calcscratchpad",  0,		1,	     -1,       'c' },
