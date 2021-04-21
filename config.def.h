@@ -161,6 +161,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,		-1,	XK_s,	   spawn,	   SHCMD("xdotool mousemove_relative -- 0 10")},
 	{ MODKEY|Mod1Mask,		-1,	XK_a,	   spawn,	   SHCMD("xdotool mousemove_relative -- -10 0")},
 	{ MODKEY|Mod1Mask,		-1,	XK_d,	   spawn,	   SHCMD("xdotool mousemove_relative -- 10 0")},
+	{ MODKEY,			-1,	XK_o,	   spawn,	   SHCMD("/usr/local/share/dwm/dmenufm")},
 	{ MODKEY,			XK_n,	XK_j,	   spawn,	   SHCMD("xdotool click --clearmodifiers 1")},
 	{ MODKEY,			XK_n,	XK_k,	   spawn,	   SHCMD("xdotool click --clearmodifiers 3")},
 	{ MODKEY,			XK_v,	XK_f,	   spawn,	   TERMCMD("ranger")},
