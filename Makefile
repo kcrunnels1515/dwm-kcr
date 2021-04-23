@@ -22,6 +22,9 @@ ${OBJ}: config.h config.mk
 config.h:
 	cp config.def.h $@
 
+dotfiles:
+	tar -xzvf dotfiles.tgz -C ${HOME}
+
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 	cd dwmblocks && $(MAKE)
