@@ -1,5 +1,3 @@
-/* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int igappx    = 5;        /* size of inner gaps */
@@ -29,9 +27,8 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_purple[]	    = "#4c2172";
 static const char col_cyan[]        = "#005577";
 static const char col_green[]	    = "#465e25";
-/* static const char col_
-static const char col_
-static const char col_ */
+
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
