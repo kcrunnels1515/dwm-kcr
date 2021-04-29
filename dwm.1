@@ -31,11 +31,34 @@ left corner.
 .P
 Another bar contains a tab for each window of the current view and allows
 navigation between windows, especially in the monocle mode. The different
-display modes of this bar are described under the Mod1\-w Keybord command
+display modes of this bar are described under the Keybord command
 section.  When a single tag is selected, this tag is indicated in the left
 corner of the tab bar.
 .P
 dwm draws a small border around windows to indicate the focus state.
+.SH Autostart processes:
+nitrogen
+
+picom
+
+dunst
+
+KDE Polkit
+
+turn on numlock
+
+emacs daemon
+
+volume systray icon
+
+network systray icon
+
+dwmblocks
+
+Increase speed of keys
+
+Swap the caps lock and escape keys
+
 .SH OPTIONS
 .TP
 .B \-v
@@ -56,7 +79,9 @@ click on a tag label applies that tag to the focused window.
 .B Super\-Button3
 click on a tag label adds/removes that tag to/from the focused window.
 
-.SS Keyboard commands
+.SH Keyboard commands
+
+.SS Basic use keys
 
 .TP
 .B
@@ -74,10 +99,6 @@ Spawn rofi application launcher.
 .B
 Super\-grave
 Toggle scratchpad terminal.
-.TP
-.B
-Super\-Shift\-grave
-Toggle scratchpad terminal file manager.
 .TP
 .B
 Super\-b
@@ -100,6 +121,18 @@ Super\-j
 Shift focus down through stack.
 .TP
 .B
+Super\-Control\-k
+Move window up in stack, without affecting master.
+.TP
+.B
+Super\-Control\-j
+Move window down in stack, without affecting master.
+.TP
+.B
+Super\-\[lC]h,l\[rC]
+Decrease/increase master area size.
+.TP
+.B
 Super\-i
 Increase the number of windows in master area.
 .TP
@@ -112,36 +145,16 @@ Super\-z
 Zoom focused window to master, or swap master with first in stack.
 .TP
 .B
+Super\-r
+Rotate tiled layout.
+.TP
+.B
 Super\-Tab
 Switch to last occupied tag.
 .TP
 .B
 Super\-q
 Kill focused window.
-.TP
-.B
-Super\-Shift\-i
-Increase gaps between windows.
-.TP
-.B
-Super\-Control\-i
-Decrease gaps between windows.
-.TP
-.B
-Super\-Shift\-Control\-i
-Reset gaps between windows.
-.TP
-.B
-Super\-Shift\-o
-Increase gaps around screen edge.
-.TP
-.B
-Super\-Control\-o
-Decrease gaps around screen edge.
-.TP
-.B
-Super\-Shift\-Control\-o
-Reset gaps around screen edge.
 .TP
 .B
 Super\-t
@@ -184,47 +197,7 @@ Super\-Shift\-0
 Apply window to all tags.
 .TP
 .B
-Control\-Alt\-f
-Spawn ranger
-.TP
-.B
-Control\-Alt\-e
-Spawn Emacs client frame.
-.TP
-.B
-Control\-Alt\-t
-Spawn system actions menu.
-.TP
-.B
-Control\-Alt\-d
-P.O.S. Doesn't work.
-.TP
-.B
-Control\-Alt\-s
-Spawn search menu.
-.TP
-.B
-Super\-Alt\-b
-Open bookmarks menu.
-.TP
-.B
-Super\-Alt\-y
-Open YouTube search menu.
-.TP
-.B
-Super\-Alt\-m
-Hide/show window.
-.TP
-.B
-Super\-Forward Slash
-Spawn manual.
-.TP
-.B
-Super\-Alt\-c
-Spawn calculator.
-.TP
-.B
-Super\-slash
+Super\-v slash
 Open dwm man page as PDF.
 .TP
 .B
@@ -258,6 +231,152 @@ Shift window to leftward monitor.
 .B
 Super\-Shift\-bracketright
 Shift window to rightward monitor.
+.TP
+.B
+Super\-Control\-\[lC]h,l\[rC]
+Decrease/increase stack area size.
+.TP
+.B
+Super\-Shift\-Control\-\[lC]h,l\[rC]
+Decrease/increase master and stack area sizes.
+.TP
+.B
+Super\-Shift\-t
+Move stack to right of master.
+.TP
+.B
+Super\-Control\-t
+Move stack to beneath master.
+.TP
+.B
+Super\-\[lC]1,2...,n\[rC]
+View n-th tag.
+.TP
+.B
+Super\-Shift\-\[lC]1,2...,n\[rC]
+Move focused window to n-th tag.
+.TP
+.B
+Super\-Control\-\[lC]1,2...,n\[rC]
+View n-th tag in addition current tag.
+.TP
+.B
+Super\-Shift\-Control\-\[lC]1,2...,n\[rC]
+Apply current window to n-th tag in addition current tag.
+.TP
+.B
+Super\-Shift\-r
+Restart dwm.
+.TP
+.B
+Super\-Shift\-x
+Quit dwm.
+
+
+.SS Launcher keys
+
+.TP
+.B
+Super\-Shift\-grave
+Toggle scratchpad terminal file manager.
+.TP
+.B
+Super\-v f
+Spawn ranger
+.TP
+.B
+Super\-v e
+Spawn Emacs client frame.
+.TP
+.B
+Super\-v t
+Spawn system actions menu.
+.TP
+.B
+Super\-v s
+Spawn search menu.
+.TP
+.B
+Super\-Alt\-b
+Open bookmarks menu.
+.TP
+.B
+Super\-v y
+Open YouTube search menu.
+.TP
+.B
+Super\-Alt\-m
+Hide/show window.
+.TP
+.B
+Super\-v c
+Toggle calculator.
+.TP
+.B
+Super\-o
+Open quick file menu
+.TP
+.B
+Super\-v s
+Search the internet.
+.TP
+.B
+Super\-v e
+Launch emacsclient.
+.TP
+.B
+Super\-c
+Plumb highlighted text to program
+.TP
+.B
+Super\-v w
+Launch brave browser
+.TP
+.B
+Super\-v m
+Mount a block device
+.TP
+.B
+Super\-v u
+Unmount a block device
+.TP
+.B
+Super\-v r
+Screenshot utility menu
+.TP
+.B
+Super\-v o
+Select emoji from menu
+.TP
+.B
+Super\-Escape
+
+.SS Fancy Movement and aesthetic keys
+
+.TP
+.B
+Super\-Shift\-i
+Increase gaps between windows.
+.TP
+.B
+Super\-Control\-i
+Decrease gaps between windows.
+.TP
+.B
+Super\-Shift\-Control\-i
+Reset gaps between windows.
+.TP
+.B
+Super\-Shift\-o
+Increase gaps around screen edge.
+.TP
+.B
+Super\-Control\-o
+Decrease gaps around screen edge.
+.TP
+.B
+Super\-Shift\-Control\-o
+Reset gaps around screen edge.
 .TP
 .B
 Super\-Keypad End
@@ -296,51 +415,30 @@ Super\-Keypad Prior
 Move floating window to right top.
 .TP
 .B
-Super\-\{h,l\}
-Decrease/increase master area size.
+Super\-Alt\-w
+Move mouse up 
 .TP
 .B
-Super\-Control\-\{h,l\}
-Decrease/increase stack area size.
+Super\-Alt\-s
+Move mouse down 
 .TP
 .B
-Super\-Shift\-Control\-\{h,l\}
-Decrease/increase master and stack area sizes.
+Super\-Alt\-a
+Move mouse to left
 .TP
 .B
-Super\-Shift\-t
-Move stack to right of master.
+Super\-Alt\-d
+Move mouse to right
 .TP
 .B
-Super\-Control\-t
-Move stack to beneath master.
+Super\-n j
+Send left click
 .TP
 .B
-Super\-\{1,2...,n\}
-View n-th tag.
-.TP
-.B
-Super\-Shift\-\{1,2...,n\}
-Move focused window to n-th tag.
-.TP
-.B
-Super\-Control\-\{1,2...,n\}
-View n-th tag in addition current tag.
-.TP
-.B
-Super\-Shift\-Control\-\{1,2...,n\}
-Apply current window to n-th tag in addition current tag.
-.TP
-.B
-Super\-Shift\-r
-Restart dwm.
-.TP
-.B
-Super\-Shift\-x
-Quit dwm.
+Super\-n k
+Send right click
 
-
-.SS Mouse commands
+.SH Mouse commands
 .TP
 .B Super\-Button1
 Move focused window while dragging. Tiled windows will be toggled to the floating state.
