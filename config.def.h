@@ -46,7 +46,7 @@ static const char *const autostart[] = {
 	"volumeicon", NULL,
 	"nm-applet", NULL,
 	"dwmblocks", NULL,
-	"xset", "r", "rate", "300", "50", NULL,
+	"xset", "r", "rate", "300", "70", NULL,
 	"setxkbmap", "-option", "caps:swapescape", NULL,
 	NULL /* terminate */
 };
@@ -60,8 +60,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor    scratch key */
-	{ "Gimp",     NULL,       NULL,     	  0,            0,           -1,        0  },
-	{ "mpv",      NULL,       NULL,     	  0,            1,           -1,        0  },
 	{ "zoom",      NULL,       NULL,     	  0,            0,            1,        0  },
 	{ "Zoom Meeting",      NULL,       NULL,     	  0,            0,            1,        0  },
 	{ NULL,       NULL,    "scratchpad",	  0,            1,           -1,       's' },

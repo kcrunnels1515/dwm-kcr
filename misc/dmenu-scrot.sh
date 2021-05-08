@@ -6,7 +6,7 @@
 #1.Added variable for notification timeouts. 2. Show link in notification
 
 
-IMG_PATH=/home/kellyr/Pictures/screenshots
+IMG_PATH=$HOME/pic/screenshots
 UL=fb
 EDIT=gimp
 TIME=3000 #Miliseconds notification should remain visible
