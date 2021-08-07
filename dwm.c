@@ -189,9 +189,11 @@ static long getstate(Window w);
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
+static int horseshit(Client *c, Atom proto);
 static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
+static void killunsel(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
@@ -1127,6 +1129,31 @@ grabkeys(void)
 	}
 }
 
+int
+horseshit(Client *c, Atom proto)
+{
+	int n;
+	Atom *protocols;
+	int exists = 0;
+	XEvent ev;
+
+	if (XGetWMProtocols(dpy, c->win, &protocols, &n)) {
+		while (!exists && n--)
+			exists = protocols[n] == proto;
+		XFree(protocols);
+	}
+	if (exists) {
+		ev.type = ClientMessage;
+		ev.xclient.window = c->win;
+		ev.xclient.message_type = wmatom[WMProtocols];
+		ev.xclient.format = 32;
+		ev.xclient.data.l[0] = proto;
+		ev.xclient.data.l[1] = CurrentTime;
+		XSendEvent(dpy, c->win, False, NoEventMask, &ev);
+	}
+	return exists;
+}
+
 void
 incnmaster(const Arg *arg)
 {
@@ -1175,6 +1202,29 @@ killclient(const Arg *arg)
 		XSync(dpy, False);
 		XSetErrorHandler(xerror);
 		XUngrabServer(dpy);
+	}
+}
+
+void
+killunsel(const Arg *arg)
+{
+	Client *i = NULL;
+
+	if (!selmon->sel)
+		return;
+
+	for (i = selmon->clients; i; i = i->next) {
+		if (ISVISIBLE(i) && i != selmon->sel) {
+			if (!horseshit(i, wmatom[WMDelete])) {
+				XGrabServer(dpy);
+				XSetErrorHandler(xerrordummy);
+				XSetCloseDownMode(dpy, DestroyAll);
+				XKillClient(dpy, i->win);
+				XSync(dpy, False);
+				XSetErrorHandler(xerror);
+				XUngrabServer(dpy);
+			}
+		}
 	}
 }
 
