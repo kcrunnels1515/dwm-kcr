@@ -1,0 +1,12 @@
+#!/bin/sh
+while true; do
+	open=$(ls -1a --group-directories-first --file-type | dmenu -i -l 20 "$@")
+	if [[ -d "$open" ]]; then
+		cd "$open"
+	else
+	if [[ "$open" != "" ]]; then
+		rifle "$open"
+	fi
+	exit 0
+fi
+done
