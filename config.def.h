@@ -18,11 +18,23 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
+static const char col_purple[]	    = "#4c2172";
 static const char col_cyan[]        = "#005577";
+static const char col_green[]	    = "#465e25";
+static const char col_black[]       = "#000000";
+static const char col_red[]         = "#ff0000";
+static const char col_yellow[]      = "#ffff00";
+static const char col_white[]       = "#ffffff";
+
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeInv] = { col_gray3, col_purple, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_green,  col_green  },
+	[SchemeNet] =	 { col_black, col_green, col_green },
+	[SchemeStat] =	 { col_white, col_cyan,  col_cyan },
+	[SchemeDate] =   { col_black, col_yellow, col_yellow },
 };
 
 static const char *const autostart[] = {
@@ -126,7 +138,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
 };
 
 /* button definitions */
