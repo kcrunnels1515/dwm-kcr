@@ -91,11 +91,10 @@ static const char pulse_volume[] = "pactl subscribe | "
 static struct arg_t args[] = {
 
 /* function		format		argument	interval (in ms) */
-{ disk_perc,		"{ %s%%",	"/home",         5   MIN,	END },
-{ cpu_perc,		"{ %s%%",	NULL,		 1   SEC,	END },
-{ ram_used,		"{ %s", 	NULL,		 3   SEC,	END },
-{ wifi_essid,		"{直 \"%s\"", IFC,		 30  SEC,	END },
-{ netspeed_rx,		"{ %s",        IFC,		 1   SEC,       END },
-{ netspeed_tx,		"{ %s",        IFC,		 1   SEC,       END },
-{ datetime,		"{ %s ",	"%H:%M:%S",	 1   SEC,	END },
+{ disk_perc,		"{ %s%%}-",	"/home",         5   MIN,	END },
+{ run_command,		"{ %s}- ", 	"free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",		 3   SEC,	END },
+{ wifi_essid,		"{[直 \"%s\"]", IFC,		 30  SEC,	END },
+{ netspeed_rx,		"[ %s]",        IFC,		 1   SEC,       END },
+{ netspeed_tx,		"[ %s]}",        IFC,		 1   SEC,       END },
+{ datetime,		"-{ %s} ",	"%I:%M",	 1   SEC,	END },
 };

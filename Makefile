@@ -43,8 +43,11 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	cp -f dw.desktop /usr/share/xsessions
+	cp -f dwm.desktop /usr/share/xsessions
 	chmod 644 /usr/share/xsessions/dwm.desktop
+	mkdir -p ${DESTDIR}${PREFIX}/share/scripts
+	cp -f scripts/* ${DESTDIR}${PREFIX}/share/scripts
+	chmod 755 ${DESTDIR}${PREFIX}/share/scripts/*
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
