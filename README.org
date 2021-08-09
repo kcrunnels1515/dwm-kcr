@@ -1,0 +1,40 @@
+#+TITLE: DWM - dynamic window manager
+#+AUTHOR: Kelly Runnels
+
+My build of dwm, with quality-of-life patches.
+
+** Requirements
+**** Necessary
+- Xlib headers
+**** You can modify these
+- Hack font
+- st (suckless terminal)
+- nitrogen (wallpaper setting)
+- picom (compositor)
+- dunst (notification daemon)
+- KDE policy kit (authorization daemon)
+- numlockx (turns numlock on by default)
+- Emacs (just because. I love emacs)
+- volumeicon (system tray icon for volume)
+- aslstatus (system stats, included in repo)
+- xset (changes key rates, can't stand normal key rates)
+- setxkbmap (for swapping caps lock and escape)
+- R (calculator)
+- ranger (terminal file manager)
+- pcmanfm (GUI file manager)
+- dmenu (suckless menu)
+- rofi (application launcher)
+- xkill (for when a application won't die)
+- surfraw (for a websearch keybind)
+- Brave (web browser)
+- scrot (screenshot program)
+
+
+** Installation
+Edit config.mk to match your local setup (dwm is installed into
+the /usr/local namespace by default).
+
+Afterwards enter the following command to build and install dwm (if
+necessary as root):
+
+    make clean install
