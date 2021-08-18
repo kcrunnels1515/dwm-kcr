@@ -132,7 +132,7 @@ static Key keys[] = {
 	/* Launchers */
 	{ MODKEY,			-1,	    XK_o,	spawn,	       SHCMD("/usr/local/share/scripts/dmenufm")},
 	{ Mod1Mask,                     XK_q,	    XK_f,	spawn,	       TERMCMD("ranger")},
-	{ Mod1Mask,                     XK_q,	    XK_t,	spawn,	       SHCMD("/usr/local/share/scripts/dmenu-system-actions.sh")},
+	{ Mod1Mask,                     XK_q,	    XK_t,	spawn,	       SHCMD("systemctl suspend")},
 	{ MODKEY,			-1,	    XK_Escape,  spawn,	       SHCMD("xkill")},
 	{ Mod1Mask,                     XK_q,	    XK_s,	spawn,	       SHCMD("/usr/local/share/scripts/dmenu-surfraw.sh")},
 	{ MODKEY|Mod1Mask,		-1,	    XK_b,	spawn,	       SHCMD("/usr/local/share/scripts/bmks")},
@@ -140,7 +140,7 @@ static Key keys[] = {
 	{ MODKEY,			-1,	    XK_c,	spawn,	       SHCMD("/usr/local/share/scripts/plumb")},
 	{ MODKEY|Mod1Mask,		-1,	    XK_m,	spawn,	       SHCMD("/usr/local/share/scripts/mapper.sh")},
 	{ Mod1Mask,                     XK_q,	    XK_w,	spawn,	       SHCMD("brave")},
-	{ Mod1Mask,                     XK_q,	    XK_w,	spawn,	       SHCMD("minecraft-launcher")},
+	{ Mod1Mask,                     XK_q,	    XK_m,	spawn,	       SHCMD("minecraft-launcher")},
 	{ Mod1Mask,                     XK_d,	    XK_m,	spawn,	       SHCMD("/usr/local/share/scripts/dmenumount.sh")},
 	{ Mod1Mask,                     XK_d,	    XK_u,	spawn,	       SHCMD("/usr/local/share/scripts/dmenuumount.sh")},
 	{ Mod1Mask,                     XK_d,	    XK_r,	spawn,	       SHCMD("/usr/local/share/scripts/dmenu-scrot.sh")},
