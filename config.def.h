@@ -69,6 +69,7 @@ static const Rule rules[] = {
         { "VirtualBox Manager",	NULL,	    NULL,	     1 << 4,     1,            1,        0  },
 	{ "VirtualBox Machine", NULL,	    NULL,	     1 << 4,     0,            0,        0  },
 	{ "zoom",		NULL,	    NULL,	     1 << 4,     0,            1,        0  },
+	{ "zoom",		NULL,	    "Chat",	     1 << 4,     0,            1,        0  },
 	{ "mpv",                NULL,       NULL,            1 << 2,	 0,	      -1,	 0  },
 	{ "vlc",                NULL,       NULL,            1 << 2,	 0,	      -1,	 0  },
 	{ "DarkPlaces",         NULL,       NULL,            1 << 3,	 0,	       0,	 0  },
@@ -108,7 +109,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL};
 static const char *rangercmd[] = {"f", "st", "-t", "fmscratchpad", "-e", "ranger", NULL};
