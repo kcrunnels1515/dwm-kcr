@@ -109,7 +109,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
-static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
+static const char *termcmd[]  = { "st", "-t", "Terminal", NULL };
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL};
 static const char *rangercmd[] = {"f", "st", "-t", "fmscratchpad", "-e", "ranger", NULL};
@@ -134,6 +134,7 @@ static Key keys[] = {
 	{ MODKEY,			-1,	    XK_o,	spawn,	       SHCMD("/usr/local/share/scripts/dmenufm")},
 	{ Mod1Mask,                     XK_q,	    XK_f,	spawn,	       TERMCMD("ranger")},
 	{ Mod1Mask,                     XK_q,	    XK_t,	spawn,	       SHCMD("systemctl suspend")},
+	{ Mod1Mask,                     XK_q,	    XK_n,	spawn,	       SHCMD("nitrogen --restore")},
 	{ MODKEY,			-1,	    XK_Escape,  spawn,	       SHCMD("xkill")},
 	{ Mod1Mask,                     XK_q,	    XK_s,	spawn,	       SHCMD("/usr/local/share/scripts/dmenu-surfraw.sh")},
 	{ MODKEY|Mod1Mask,		-1,	    XK_b,	spawn,	       SHCMD("/usr/local/share/scripts/bmks")},

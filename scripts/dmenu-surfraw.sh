@@ -18,7 +18,7 @@ engine=$(sr -elvi | gawk '{if (NR!=1) { print $1 }}' | $cmd -p "Search engine?")
 done
 
 while [ -z "$query" ]; do
-query=$(cat $histfile | $cmd -p "Searching $engine") || exit
+query=$(uniq $histfile | $cmd -p "Searching $engine") || exit
 done
 
 sr -g "$engine" $query

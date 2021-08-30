@@ -96,5 +96,5 @@ static struct arg_t args[] = {
 { wifi_essid,		"{[直 \"%s\"]", IFC,		 30  SEC,	END },
 { netspeed_rx,		"[ %s]",        IFC,		 1   SEC,       END },
 { netspeed_tx,		"[ %s]} ",        IFC,		 1   SEC,       END },
-{ datetime,		"-{ %s} ",	"%I:%M",	 1   SEC,	END },
+{ datetime,		"-{ %s} ",	"%I:%M, %b %e",	 1   SEC,	END },
 };
