@@ -41,7 +41,7 @@ static const char *const autostart[] = {
 	"nitrogen", "--restore", NULL,
 	"picom", NULL,
 	"dunst", NULL,
-	"/usr/lib/polkit-kde-authentication-agent-1", NULL,
+	"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
 	"numlockx", "on", NULL,
 	"emacs", "--daemon", NULL,
 	"volumeicon", NULL,
