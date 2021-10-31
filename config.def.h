@@ -38,10 +38,9 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"nitrogen", "--restore", NULL,
+	"/usr/local/bin/nitrogen_random.sh", NULL,
 	"picom", NULL,
 	"dunst", NULL,
-	"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1", NULL,
 	"numlockx", "on", NULL,
 	"emacs", "--daemon", NULL,
 	"volumeicon", NULL,
@@ -74,6 +73,7 @@ static const Rule rules[] = {
 	{ "vlc",                NULL,       NULL,            1 << 2,	 0,	      -1,	 0  },
 	{ "DarkPlaces",         NULL,       NULL,            1 << 3,	 0,	       0,	 0  },
 	{ "Minecraft* 1.17.1",  NULL,       NULL,            1 << 3,	 0,	       0,	 0  },
+	{ "minecraft-launcher", "Minecraft Launcher", NULL,  1 << 3,     0,            0,        0  },
 	{ NULL,             	NULL,      "scratchpad",     0,          1,           -1,       's' },
 	{ NULL,	                NULL,      "fmscratchpad",   0,	         0,           -1,       'f' },
 	{ NULL,	                NULL,      "calcscratchpad", 0, 	 1,           -1,       'c' },

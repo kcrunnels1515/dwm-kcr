@@ -80,7 +80,7 @@ static const char unknown_str[] = "???";
 #define MIN * 60 SEC
 
 #define ONCE ((unsigned int) -1)  /* to run */
-static const char IFC[] = "wlp3s0";  /* wifi interface */
+static const char IFC[] = "wlan0";  /* wifi interface */
 
 /* temporarily to get sound percentage for pulseaudio */
 static const char pulse_volume[] = "pactl subscribe | "

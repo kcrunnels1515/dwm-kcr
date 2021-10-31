@@ -1,4 +1,27 @@
 #!/bin/bash
+function _emacsfun
+{
+# Replace with `emacs` to not run as server/client
+emacsclient -c -n $@
+}
+
+# An emacs 'alias' with the ability to read from stdin example: echo "hello world" | ef -
+function ef
+{
+# If the argument is - then write stdin to a tempfile and open the
+# tempfile.
+if [[ $1 == - ]]; then
+tempfile=$(mktemp emacs-stdin-$USER.XXXXXXX --tmpdir)
+cat - > $tempfile
+_emacsfun -e "(progn (find-file \"$tempfile\")
+                             (set-visited-file-name nil)
+                             (rename-buffer \"*stdin*\" t))
+                 " 2>&1 > /dev/null
+else
+_emacsfun "$@"
+fi
+}
+
 BROWSER="brave"
 prim="$(xclip -o)"; [ -z "$prim" ] && exit
 
@@ -8,9 +31,9 @@ cd "$(readlink /proc/"$PID"/cwd)"
 [ -f "$prim" ] && rifle "$prim" && exit
 [ -d "$prim" ] && "$TERMINAL" "$prim" && exit
 
-websearch() { "/usr/local/share/dwm/dmenu-surfraw.sh" "$@" ;}
+websearch() { "/usr/local/share/scripts/dmenu-surfraw.sh" "$@" ;}
 maps() { "$BROWSER" "https://openstreetmap.org/search?query=$@" ;}
-ebay() { "$BROWSER" "https://www.ebay.com/sch/$@" ;}
+edit() { "echo" "$@" "ef" "-" ;}
 
 echo "$prim" | grep "^.*\.[A-Za-z]\+.*" >/dev/null && gotourl() { "$BROWSER" "$@" ;}
 echo "$prim" | grep "^.*@.*\.[A-Za-z]\+$" >/dev/null && email() { xdg-email "$@" ;}
