@@ -38,7 +38,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"/usr/local/bin/nitrogen_random.sh", NULL,
+	"/home/kellyr/.scripts/nitrogen_random.sh", NULL,
 	"picom", NULL,
 	"dunst", NULL,
 	"numlockx", "on", NULL,
